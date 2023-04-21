@@ -12,8 +12,8 @@
   
   <div id="app">
     <ul>
-      <li>
-        {{mail}}
+      <li v-for="(mail, i) in arrayMail">
+        {{arrayMail[i]}}
       </li>
     </ul>
   </div>
