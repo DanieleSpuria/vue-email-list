@@ -11,8 +11,10 @@
 <body>
   
   <div id="app">
-    <ul>
-      <li v-for="(mail, i) in arrayMail">
+    <span v-if="!load">One moment please</span>
+    <ul v-else>
+      <li v-for="(mail, i) in arrayMail"
+      >
         {{arrayMail[i]}}
       </li>
     </ul>
