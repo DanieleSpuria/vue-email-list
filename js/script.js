@@ -9,7 +9,7 @@ createApp({
 
   methods: {
     api() {
-      axios.get(url)
+      axios.get(this.url)
       .then (result => {
         console.log(result.data);
       })
@@ -17,6 +17,6 @@ createApp({
   },
 
   mounted() {
-    api()
+    this.api()
   }
 }).mount('#app')
