@@ -11,26 +11,32 @@ createApp({
   },
 
   methods: {
-    api() {
+    apiLoop() {
       for(let i = 0; i < 10; i++) {
         axios.get(this.url)
-          .then (result => {
-            this.mail = result.data.response;
-            this.arrayMail.push(this.mail);
+        .then (result => {
+          this.mail = result.data.response;
+          this.arrayMail.push(this.mail);
+        })
+        .catch (error => {
+           console.log(error);
         })
       };
-
-        axios.get(this.url)
-          .then (result => {
-            this.load = true;
-        })
-          .catch (error => {
-          console.log(error);
-        })
     },
+
+    apiLoad() {
+      axios.get(this.url)
+      .then (result => {
+        this.load = true;
+      })
+      .catch (error => {
+        console.log(error);
+      })
+    }
   },
 
   mounted() {  
-    this.api();  
+    this.apiLoop();  
+    this.apiLoad()
   }
 }).mount('#app')
